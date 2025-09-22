@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="facebook-domain-verification" content="afsw6muahu0ibvpp00p1fby3qie5zk" />
+    <title>Border Airlines - Vuelos y Viajes Internacionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6, #60a5fa);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: sparkle 20s infinite linear;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 80px 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(30, 58, 138, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: #60a5fa;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .experience-highlight {
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .experience-highlight h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 40px 30px;
+            border-radius: 10px;
+            border-left: 5px solid #3b82f6;
+            transition: all 0.3s ease;
+            height: auto;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-list li:before {
+            content: "✈️";
+            color: #3b82f6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Three Column Services Layout */
+        .services-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .service-overview-card {
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .service-overview-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #60a5fa;
+        }
+
+        .service-overview-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-overview-card li {
+            padding: 5px 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #3b82f6;
+        }
+
+        .team-member h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+
+        .team-member .position {
+            color: #3b82f6;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-member .quote {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            color: #60a5fa;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+
+        .contact-item i {
+            color: #60a5fa;
+            margin-right: 15px;
+            margin-top: 3px;
+            width: 20px;
+        }
+
+        .contact-item span {
+            line-height: 1.6;
+        }
+
+        .business-hours {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .business-hours h4 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .business-hours p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .business-hours strong {
+            color: #60a5fa;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                padding: 40px 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Additional styling to match spa theme */
+        .highlight-text {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        
+        /* Spa Gallery Styles */
+        .spa-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 58, 138, 0.9), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #60a5fa;
+        }
+        
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .mission-section {
+            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .mission-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Responsive WhatsApp button */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="home">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">BORDER AIRLINES</h1>
+                <p class="logo-subtitle">Vuelos y Viajes Internacionales</p>
+                <p class="tagline">Conectamos el mundo con excelencia y seguridad. Ofrecemos los mejores servicios de vuelos internacionales con profesionalismo y la más alta calidad en aviación comercial.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#services">Vuelos</a></li>
+                    <li><a href="#team">Equipo</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir Border Airlines?</h2>
+            <div class="about-content">
+                <div>
+                    <p class="about-text">
+                        Somos una aerolínea especializada en vuelos internacionales y servicios de aviación comercial. Ofrecemos una amplia gama de destinos y servicios de vuelo de la más alta calidad, desde vuelos domésticos hasta rutas internacionales que destacan por su seguridad y comodidad excepcionales.
+                    </p>
+                    <p class="about-text">
+                        Contamos con años de experiencia en la industria de la aviación. Nuestro equipo de profesionales se dedica a ayudarte a encontrar el vuelo perfecto para cada necesidad de viaje, garantizando seguridad y calidad en cada trayecto.
+                    </p>
+                </div>
+                <div>
+                    <div class="experience-highlight">
+                        <h3>Vuelos Internacionales</h3>
+                    </div>
+                    <p class="about-text">
+                        Ofrecemos servicios integrales a través de nuestro <strong class="highlight-text">SISTEMA DE RESERVAS PERSONALIZADO</strong> para todas tus necesidades de viaje. Somos referentes en aviación y calidad en vuelos internacionales.
+                    </p>
+                    <div class="mission-section">
+                        <h3>Nuestra Misión</h3>
+                        <p>Brindar los servicios de vuelos más seguros y de mejor calidad al mejor precio posible, sin comprometer la seguridad, comodidad y satisfacción de nuestros pasajeros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Descubre la experiencia de vuelo perfecta para cada necesidad de viaje</p>
+
+            <!-- Three Column Overview -->
+            <div class="services-overview">
+                <div class="service-overview-card">
+                    <h4>Vuelos Domésticos</h4>
+                    <ul>
+                        <li>Buenos Aires - Córdoba</li>
+                        <li>Buenos Aires - Mendoza</li>
+                        <li>Buenos Aires - Bariloche</li>
+                        <li>Buenos Aires - Salta</li>
+                        <li>Buenos Aires - Ushuaia</li>
+                    </ul>
+                </div>
+                <div class="service-overview-card">
+                    <h4>Vuelos Internacionales</h4>
+                    <ul>
+                        <li>Buenos Aires - Madrid</li>
+                        <li>Buenos Aires - Miami</li>
+                        <li>Buenos Aires - São Paulo</li>
+                        <li>Buenos Aires - Santiago</li>
+                        <li>Buenos Aires - Lima</li>
+                    </ul>
+                </div>
+                <div class="service-overview-card">
+                    <h4>Servicios Premium</h4>
+                    <ul>
+                        <li>Clase Business</li>
+                        <li>Clase Primera</li>
+                        <li>Lounge VIP</li>
+                        <li>Asistencia personalizada</li>
+                        <li>Servicio a bordo gourmet</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Gallery Section -->
+            <div class="spa-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=400&fit=crop" alt="Avión en vuelo">
+                    <div class="gallery-overlay">
+                        <h4>Vuelos Internacionales</h4>
+                        <p>Conectamos destinos alrededor del mundo</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&h=400&fit=crop" alt="Interior de avión">
+                    <div class="gallery-overlay">
+                        <h4>Cabina Premium</h4>
+                        <p>Máxima comodidad en cada vuelo</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=400&h=400&fit=crop" alt="Aeropuerto">
+                    <div class="gallery-overlay">
+                        <h4>Aeropuertos</h4>
+                        <p>Conectamos con los principales hubs mundiales</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop" alt="Servicio a bordo">
+                    <div class="gallery-overlay">
+                        <h4>Servicio a Bordo</h4>
+                        <p>Experiencia gastronómica en las alturas</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=400&fit=crop" alt="Lounge VIP">
+                    <div class="gallery-overlay">
+                        <h4>Lounge VIP</h4>
+                        <p>Relajación y comodidad antes del vuelo</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=400&fit=crop" alt="Equipaje">
+                    <div class="gallery-overlay">
+                        <h4>Equipaje</h4>
+                        <p>Manejo seguro y eficiente de tu equipaje</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services Section -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Vuelos Domésticos Premium</h3>
+                    <p>Ofrecemos una amplia gama de vuelos domésticos de la más alta calidad para satisfacer todas las necesidades de viaje:</p>
+                    <ul class="service-list">
+                        <li>Vuelos diarios a Córdoba y Mendoza</li>
+                        <li>Rutas especializadas a Bariloche y Ushuaia</li>
+                        <li>Vuelos directos a Salta y Jujuy</li>
+                        <li>Servicios a Rosario y Santa Fe</li>
+                        <li>Vuelos a Mar del Plata y Pinamar</li>
+                        <li>Rutas a Iguazú y Cataratas</li>
+                        <li>Vuelos a El Calafate y Perito Moreno</li>
+                        <li>Servicios a Puerto Madryn y Península Valdés</li>
+                        <li>Certificaciones de seguridad en todos los vuelos</li>
+                        <li>Garantía de puntualidad en todas las rutas</li>
+                        <li>Asesoramiento personalizado de viaje</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Servicios de Vuelo</h3>
+                    <p>Brindamos servicios profesionales para el cuidado integral de tu experiencia de vuelo:</p>
+                    <ul class="service-list">
+                        <li>Check-in online y en aeropuerto</li>
+                        <li>Asistencia para equipaje especial</li>
+                        <li>Servicio de comidas gourmet a bordo</li>
+                        <li>Entretenimiento en vuelo premium</li>
+                        <li>WiFi gratuito en todos los vuelos</li>
+                        <li>Consultas de viaje personalizadas</li>
+                        <li>Programas de fidelización</li>
+                        <li>Asesoramiento en destinos turísticos</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Paquetes de Viaje Personalizados</h3>
+                    <p>Creamos experiencias únicas y exclusivas adaptadas a tus necesidades específicas de viaje:</p>
+                    <ul class="service-list">
+                        <li>Consulta personalizada de viaje</li>
+                        <li>Evaluación de necesidades individuales</li>
+                        <li>Selección de destinos premium</li>
+                        <li>Desarrollo de itinerarios personalizados</li>
+                        <li>Seguimiento del progreso de reserva</li>
+                        <li>Ajustes durante la planificación</li>
+                        <li>Entrega con recomendaciones personalizadas</li>
+                        <li>Seguimiento post-viaje</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Equipo de Profesionales</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Carlos Mendoza">
+                    <h4>Carlos Mendoza</h4>
+                    <p class="position">Director General y Piloto Comercial</p>
+                    <p class="quote">"Cada vuelo cuenta una historia única. Nuestro compromiso es llevarte de forma segura a tu destino con la máxima comodidad y profesionalismo."</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Ana Rodríguez">
+                    <h4>Ana Rodríguez</h4>
+                    <p class="position">Jefa de Tripulación Senior</p>
+                    <p class="quote">"La excelencia se encuentra en los detalles. Cada vuelo que realizamos es trabajado con pasión y profesionalismo especializado."</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b332c1ee?w=150&h=150&fit=crop&crop=face" alt="María Martínez">
+                    <h4>María Martínez</h4>
+                    <p class="position">Especialista en Servicios a Bordo</p>
+                    <p class="quote">"El servicio al cliente es fundamental, al igual que la confianza que depositas en nosotros. Te ayudo a disfrutar tu viaje al máximo."</p>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Diego Fernández">
+                    <h4>Diego Fernández</h4>
+                    <p class="position">Consultor de Viajes</p>
+                    <p class="quote">"Mi objetivo es brindarte una experiencia excepcional, desde la consulta hasta la implementación de tu itinerario de viaje personalizado."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">¿Tienes alguna consulta sobre nuestros vuelos?</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Ubicación de Nuestra Empresa</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Alvear 3046, Buenos Aires</span>
+                    </div>
+        
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+5492236328763</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>borderairlines@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-id-card"></i>
+                        <span>CUIL: 20060434280</span>
+                    </div>
+                </div>
+        
+                <div class="contact-info">
+                    <div class="business-hours">
+                        <h4>Horarios de Atención</h4>
+                        <p><strong>Días de atención:</strong></p>
+                        <p>Lunes a Viernes: 9:00 a 19:00 hs</p>
+                        <p>Sábados: 9:00 a 16:00 hs</p>
+                        <br>
+                        <p><strong>Consultas y reservas:</strong></p>
+                        <p>Disponible en horarios de atención</p>
+                        <p>WhatsApp: +5492236328763</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Border Airlines. Todos los derechos reservados</p>
+            <p>Vuelos y viajes internacionales</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scrolling effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(30, 58, 138, 0.98)';
+            } else {
+                nav.style.background = 'rgba(30, 58, 138, 0.95)';
+            }
+        });
+    </script>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5492236328763?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20vuelos" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
